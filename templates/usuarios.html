@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% extends "base2.html" %}
+
+{% block content %}
+
+
+<div >
+  {%if usuarioslist%}
+    <table class="table table-hover table-stripped">
+      <thead>
+        <th>Nombre</th>
+        <th>Apellidos </th>
+        <th>Codigo Cliente</th>
+        <th> Nombre de Troba</th>
+      </thead>
+
+    {%for u in usuarioslist%}
+    <tr>
+      <td>{{u.nombre}}</td>
+      <td>{{u.apellido}}</td>
+      <td>{{u.codigoCliente}}</td>
+      <td>{{u.troba.trobaNombre}}</td>
+      <td >
+        <a  href="{% url 'index' %}"><i class='fas fa-undo' style='font-size:30px'></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+
+  </table>
+  {% else %}
+
+  <p>no hay informacion que mostrar </p>
+
+  {%endif%}
+
+</div>
+
+
+
+
+{% endblock %}

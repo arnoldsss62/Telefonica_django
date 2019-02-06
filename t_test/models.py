@@ -82,3 +82,23 @@ class TareaProgramada(models.Model):
 
     def __str__(self):
         return 'tarea programada %s' % self.tareaProgramadaId
+
+
+
+
+#Modelo creado para cubrir parte de trabajo requerido por la Gestion de Cambios
+
+class TareaNoc(models.Model):
+    #Este es el id del cambio
+    remedy=models.CharField(max_length=60)
+    resumen=models.CharField(max_length=100)
+    fechaHoraInicio=models.DateTimeField()
+    fechaHoraFin=models.DateTimeField()
+    responsable=models.CharField(max_length=60)
+    elementoRed=models.CharField(max_length=60)
+    region=models.CharField(max_length=60)
+    impacto=models.CharField(max_length=60)
+    servAfectados=models.CharField(max_length=60)
+    descripccionNoTecnica=models.CharField(max_length=60)
+    proyecto_beneficio=models.CharField(max_length=100)
+    tiempoRollback=models.TimeField()

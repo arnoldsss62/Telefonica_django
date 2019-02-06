@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 
-{% include "base2.html" %}
+{% extends "base2.html" %}
 
-{% block body-block %}
+{% block content %}
 
-    <h2>Este es el index </h2>
+    <div >
+      {%if tarealist%}
+        <table class="table table-hover table-stripped">
+          <thead>
+            <th>Remedy</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Lista Usuarios</th>
+          </thead>
+
+        {%for t in tarealist%}
+        <tr>
+          <td>{{t.infoPlanta.remedy}}</td>
+          <td>{{t.fechaInicio}}</td>
+          <td>{{t.fechaFin}}</td>
+          <td >
+            <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </table>
+      {% else %}
+
+      <p>no hay informacion que mostrar </p>
+
+      {%endif%}
+
+    </div>
 
 {% endblock %}

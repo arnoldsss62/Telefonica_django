@@ -30,7 +30,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>TELEFONICOS </h3>
+                <h3><a href="{% url 'index' %}">TELEFONICOS</a></h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -50,8 +50,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">Calendario</a>
                 </li>
+                <li>
+                    <a href="{% url 'formulario' %}">Formulario</a>
+                </li>
+                <!--
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -66,14 +70,18 @@
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="#">Portfolio</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
                 </li>
+
+              -->
             </ul>
 
+            <!--
             <ul class="list-unstyled CTAs">
                 <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
@@ -82,6 +90,7 @@
                     <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
                 </li>
             </ul>
+          -->
         </nav>
 
         <!-- Page Content  -->
@@ -119,7 +128,7 @@
                 </div>
             </nav>
 
-            {% block body_block %}
+            {% block content %}
 
             {% endblock %}
 

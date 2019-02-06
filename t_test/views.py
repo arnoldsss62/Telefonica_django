@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django import forms
 from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta
+from .forms import nuevaTareaForm
 
 # Create your views here.
 
@@ -29,3 +30,29 @@ def index (request):
     my_dict={'insert_me':'Vengo de don views.py', 'tarealist':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")
     return render(request,'index.html',context=my_dict)
+
+
+def usuarios(request,id):
+
+
+    listausuarios=Usuario.objects.filter(troba__trobaId=id)
+    my_dict={'usuarioslist':listausuarios}
+    return  render(request,'usuarios.html',context=my_dict)
+
+
+
+def addTarea(request):
+
+    form = nuevaTareaForm
+
+    if request.method=='POST':
+        form=nuevaTareaForm(request.POST)
+
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print('Informacion invalida')
+
+    return render(request,'form.html',{'form':form})
