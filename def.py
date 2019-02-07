@@ -24,7 +24,7 @@ def Populate(N=5):
 
          fake_cmtsNombre=choice(['VILLA EL SALVADOR1','SAN JUAN4','1EROMAYO1','CHORRILLOS1','MAGDALENA2','MAGDALENA1','SAN JUAN1','SAN JUAN2','SAN JUAN3'])
          fake_nodoNombre=choice(['CA','CU','CV','LC','LF','LM','LO','MA','MI','P3','PI','RA','RO','SB','SI','SV','T1','VI','WA'])
-         fake_trobaNombre= 'R'+ str(randrange(100,999))
+         fake_trobaNombre= 'R'+ str(randrange(100,105))
          fake_nombre= choice(['Jhon','Sansa','Tyron','Aria','Brie','Bran','Ned','Rob','Robet','Summer','Ghost','Lady','Cathelyn'])
          fake_apellido=choice(['Dominguez','Lu','Ra','Zen','Brian','Tarth','Snow','Sand','Targaryen','Stark','Lannister','Black Fire'])
          fake_codigoCliente=randrange(100000, 9999999)
@@ -51,4 +51,4 @@ def Populate(N=5):
 if __name__ == '__main__':
 
     print('Populando la DB')
-    Populate(10)
+    Populate(100)

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django import forms
-from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta
+from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta, TareaNoc
 from .forms import nuevaTareaForm
 
 # Create your views here.
@@ -25,7 +25,7 @@ def index (request):
 
         #template = "your_template.html"
     #context = { "form" : NameForm() }
-    tarea=TareaProgramada.objects.order_by('fechaInicio')
+    tarea=TareaProgramada.objects.order_by('tareaProgramadaId')
 
     my_dict={'insert_me':'Vengo de don views.py', 'tarealist':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")
@@ -40,12 +40,19 @@ def usuarios(request,id):
     return  render(request,'usuarios.html',context=my_dict)
 
 
+def tareasnoc(request):
+
+
+    listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    my_dict={'tarealist':listaTareas}
+    return  render(request,'tareasnoc.html',context=my_dict)
 
 def addTarea(request):
 
     form = nuevaTareaForm
 
     if request.method=='POST':
+        print('entro tu post')
         form=nuevaTareaForm(request.POST)
 
 

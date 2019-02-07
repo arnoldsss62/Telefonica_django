@@ -9,6 +9,10 @@
 
     <title>Mi proyecto telefonico :v</title>
 
+    <!-- Include FontAwesome; required for icon display -->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+
+
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -22,6 +26,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    {{ form.media }}
+
+
 </head>
 
 <body>
@@ -30,7 +38,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a href="{% url 'index' %}">TELEFONICOS</a></h3>
+                <h3><a href="{% url 'index' %}">TELEFONICA</a></h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -50,7 +58,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Calendario</a>
+                    <a href="{% url 'tareasnoc' %}">Tareas NOC</a>
                 </li>
                 <li>
                     <a href="{% url 'formulario' %}">Formulario</a>

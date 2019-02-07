@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% extends "base2.html" %}
+
+{% block content %}
+
+<h2>TAREAS NOC</h2>
+<div >
+  {%if tarealist%}
+    <table class="table table-hover table-stripped">
+      <thead>
+        <th>Remedy</th>
+        <th>Resumen </th>
+        <th>Fecha de Inicio</th>
+        <th> Responsable</th>
+      </thead>
+
+    {%for u in tarealist %}
+    <tr>
+      <td>{{u.remedy}}</td>
+      <td>{{u.resumen}}</td>
+      <td>{{u.fechaHoraFin}}</td>
+      <td>{{u.responsable}}</td>
+
+    </tr>
+    {% endfor %}
+
+  </table>
+  {% else %}
+
+  <p>no hay informacion que mostrar </p>
+
+  {%endif%}
+
+</div>
+
+
+
+
+{% endblock %}

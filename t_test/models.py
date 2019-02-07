@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 # Create your models here.
@@ -93,7 +94,7 @@ class TareaNoc(models.Model):
     remedy=models.CharField(max_length=60)
     resumen=models.CharField(max_length=100)
     fechaHoraInicio=models.DateTimeField()
-    fechaHoraFin=models.DateTimeField()
+    fechaHoraFin=models.DateTimeField(auto_now_add=True, blank=True)
     responsable=models.CharField(max_length=60)
     elementoRed=models.CharField(max_length=60)
     region=models.CharField(max_length=60)
