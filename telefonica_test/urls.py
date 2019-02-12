@@ -23,4 +23,6 @@ urlpatterns = [
     path('here/',include('t_test.urls'),name='usuarios'),
     path('form/',vi.addTarea, name='formulario'),
     path('tareasnoc/',vi.tareasnoc, name='tareasnoc'),
+    path('calendario/',vi.calendario, name='calendario'),
+
 ]

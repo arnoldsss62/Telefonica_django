@@ -47,6 +47,13 @@ def tareasnoc(request):
     my_dict={'tarealist':listaTareas}
     return  render(request,'tareasnoc.html',context=my_dict)
 
+def calendario(request):
+
+
+    listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    my_dict={'tarealist':listaTareas}
+    return  render(request,'calendario.html',context=my_dict)
+
 def addTarea(request):
 
     form = nuevaTareaForm

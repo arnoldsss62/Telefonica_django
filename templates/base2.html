@@ -15,8 +15,7 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+
   <!--  <link rel="stylesheet" href="style2.css">
   -->
     <!-- Scrollbar Custom CSS -->
@@ -30,13 +29,44 @@
     {{ form.media }}
 
 
+    <!-- CALENDARIO
+    -->
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Import materialize.css -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <link type="text/css"  rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body{
+            background-color: #B6DBFF;
+        }
+        #date{
+            margin-top: 50px;
+        }
+    </style>
+
+
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
 </head>
 
 <body>
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebarArnold">
             <div class="sidebar-header">
                 <h3><a href="{% url 'index' %}">TELEFONICA</a></h3>
             </div>
@@ -63,6 +93,10 @@
                 <li>
                     <a href="{% url 'formulario' %}">Formulario</a>
                 </li>
+                <li>
+                    <a href="{% url 'calendario' %}">Calendario</a>
+                </li>
+
                 <!--
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -165,6 +199,34 @@
             });
         });
     </script>
+
+    <!-- script calendario -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- JavaScript at end of body for optimized loading -->
+    <script type="text/javascript">
+        const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                autoClose: true,
+                format: 'yyyy/mm/dd',
+                setDefaultDate: false,
+                defaultDate: new Date(2019, 1, 1),
+                minDate: new Date(1990, 1, 1),
+                maxDate: new Date(2030, 1, 1),
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
+                    weekdaysAbbrev: ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D'],
+                    weekdaysShort: ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom']
+                }
+            });
+
+          $(document).ready(function () {
+                $('.collapsible').collapsible();
+            });
+    </script>
+
+
 </body>
 
 </html>
