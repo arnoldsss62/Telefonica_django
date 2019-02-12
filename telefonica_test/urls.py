@@ -24,5 +24,6 @@ urlpatterns = [
     path('form/',vi.addTarea, name='formulario'),
     path('tareasnoc/',vi.tareasnoc, name='tareasnoc'),
     path('calendario/',vi.calendario, name='calendario'),
+    re_path(r'^search/$', vi.showTable,name='search'),
 
 ]

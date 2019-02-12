@@ -50,7 +50,8 @@ def tareasnoc(request):
 def calendario(request):
 
 
-    listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    #listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    listaTareas= {}
     my_dict={'tarealist':listaTareas}
     return  render(request,'calendario.html',context=my_dict)
 
@@ -70,3 +71,15 @@ def addTarea(request):
             print('Informacion invalida')
 
     return render(request,'form.html',{'form':form})
+
+def showTable(request):
+    if 'fecha' in request.GET:
+        date = request.GET['fecha']
+        print('Esta es la fecha')
+        print (date)
+        listatareas=TareaNoc.objects.filter(fechaHoraInicio__date=date)
+    else:
+        date = 'You submitted nothing!'
+
+    my_dict={'tarealist':listatareas}
+    return  render(request,'calendario.html',context=my_dict)
