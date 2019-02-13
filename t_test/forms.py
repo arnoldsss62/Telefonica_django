@@ -2,21 +2,13 @@ import datetime
 from django import forms
 from .models import TareaNoc
 from crispy_forms.helper import FormHelper
-from tempus_dominus.widgets import DatePicker, TimePicker, DateTimePicker
+from django.contrib.admin import widgets
+from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 
 class nuevaTareaForm(forms.ModelForm):
 
     helper=FormHelper()
     helper.form_show_labels=True
-
-    fechaHoraInicio=forms.DateTimeField(
-        
-
-    )
-
-
-
-
 
     class Meta():
         model=TareaNoc
@@ -46,3 +38,7 @@ class nuevaTareaForm(forms.ModelForm):
             'fechaHoraInicio': 'YYYY:MM:DD',
             'responsable' : 'Nombre de la personsa a cargo',
         }
+        widgets = {
+             'fechaHoraInicio': DateTimePickerInput(format='%Y-%m-%d %H:%M:%S'), # specify date-time-frmatç
+             'tiempoRollback': TimePickerInput(),
+         }

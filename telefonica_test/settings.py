@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     't_test',#user app
-    'tempus_dominus',
+    #'tempus_dominus',
+    'bootstrap_datepicker_plus',
     'crispy_forms',
 ]
 

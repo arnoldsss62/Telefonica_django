@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django import forms
 from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta, TareaNoc
 from .forms import nuevaTareaForm
+from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
+from django.views import generic
+
+
 
 # Create your views here.
 
@@ -25,7 +29,7 @@ def index (request):
 
         #template = "your_template.html"
     #context = { "form" : NameForm() }
-    tarea=TareaProgramada.objects.order_by('tareaProgramadaId')
+    tarea=TareaProgramada.objects.filter(infoPlanta__corteS_N=True)
 
     my_dict={'tarealista':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 
-{% extends "base2.html" %}
+{% extends "base.html" %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
 
 {% load crispy_forms_tags %}
 {% crispy form  form.helper%}
