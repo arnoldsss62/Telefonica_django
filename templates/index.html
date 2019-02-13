@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-
 {% extends "base2.html" %}
-
 {% block content %}
-
-  <div class="row">
-    <div class="col-md-8">
-      <p><a href="{%url 'index'%}">AQUI VA UN CALENDARIO</a>
-      </p>
-    </div>
-
+<div class="row">
+  <div class="col-md-8">
+    <p><a href="{%url 'index'%}">AQUI VA UN CALENDARIO</a>
+    </p>
   </div>
-    <div >
-      {%if tarealist%}
-        <table class="table table-hover table-stripped">
-          <thead>
-            <th>Remedy</th>
-            <th>Fecha de Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Lista Usuarios</th>
-          </thead>
 
-        {%for t in tarealist%}
-        <tr>
-          <td>{{t.infoPlanta.remedy}}</td>
-          <td>{{t.fechaInicio}}</td>
-          <td>{{t.fechaFin}}</td>
-          <td >
-            <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
-          </td>
-        </tr>
-        {% endfor %}
+</div>
 
-      </table>
-      {% else %}
-
-      <p>no hay informacion que mostrar </p>
-
-      {%endif%}
-
-    </div>
+<div >
+  {%if tarealista%}
+    <table class="table table-hover table-stripped">
+      <thead>
+        <th>Remedy</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha Fin</th>
+        <th>Lista Usuarios</th>
+      </thead>
+    {%for t in tarealista%}
+    <tr>
+      <td>{{t.infoCore.remedy}}</td>
+      <td>{{t.fechaInicio}}</td>
+      <td>{{t.fechaFin}}</td>
+      <td >
+        <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>no hay informacion que mostrar </p>
+  {%endif%}
+</div>
 
 {% endblock %}

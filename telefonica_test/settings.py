@@ -84,7 +84,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'telefonica',
+        'NAME': 'test',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
         'USER': 'arnold',
         'PASSWORD': 'arnold123',
         'HOST': 'dbs.cxet9ook2kvx.us-east-2.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on

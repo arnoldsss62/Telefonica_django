@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'base2.html'%}
+
+{% block content %}
+  <p>Ojala salga mi index2   </p>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <thead>
+          <th>Remedy</th>
+        </thead>
+        {%for  t in tarealista %}
+        <tr>
+            <td>{{t.fechaInicio}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+
+  </div>
+{% endblock %}

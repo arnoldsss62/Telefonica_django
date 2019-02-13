@@ -27,7 +27,7 @@ def index (request):
     #context = { "form" : NameForm() }
     tarea=TareaProgramada.objects.order_by('tareaProgramadaId')
 
-    my_dict={'insert_me':'Vengo de don views.py', 'tarealist':tarea}
+    my_dict={'tarealista':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")
     return render(request,'index.html',context=my_dict)
 

@@ -55,7 +55,7 @@ a:focus {
     width: 100%;
 }
 
-#sidebarArnold {
+#sidebar {
     width: 250px;
     position: fixed;
     top: 0;
@@ -67,37 +67,37 @@ a:focus {
     transition: all 0.3s;
 }
 
-#sidebarArnold.active {
+#sidebar.active {
     margin-left: -250px;
 }
 
-#sidebarArnold .sidebar-header {
+#sidebar .sidebar-header {
     padding: 20px;
     background: #6d7fcc;
 }
 
-#sidebarArnold ul.components {
+#sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
 }
 
-#sidebarArnold ul p {
+#sidebar ul p {
     color: #fff;
     padding: 10px;
 }
 
-#sidebarArnold ul li a {
+#sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
 
-#sidebarArnold ul li a:hover {
+#sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
 }
 
-#sidebarArnold ul li.active>a,
+#sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
