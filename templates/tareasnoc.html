@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 
 {% extends "base2.html" %}
-
-
-
 {% block content %}
-
 <h2>TAREAS NOC</h2>
 <div >
   {%if tarealist%}
@@ -23,20 +19,11 @@
       <td>{{u.resumen}}</td>
       <td>{{u.fechaHoraInicio}}</td>
       <td>{{u.responsable}}</td>
-
     </tr>
     {% endfor %}
-
   </table>
   {% else %}
-
   <p>no hay informacion que mostrar </p>
-
   {%endif%}
-
 </div>
-
-
-
-
 {% endblock %}

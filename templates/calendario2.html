@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4">
+
+    <form  action="/search/" method="GET" >
+      {{form|crispy}}
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+      <button type="submit" class="btn btn-success">
+    <i class="icon-circle-arrow-right icon-large"></i> Ingresar
+  </button>
+    </form>
+  </div>
+</div>
+
+
+<h2>TAREAS NOC</h2>
+<div class="row">
+  <div class >
+    {%if tarealist%}
+      <table class="table table-hover table-stripped">
+        <thead>
+          <th>Remedy</th>
+          <th>Resumen </th>
+          <th>Fecha de Inicio</th>
+          <th> Responsable</th>
+        </thead>
+
+      {%for u in tarealist %}
+      <tr>
+        <td>{{u.remedy}}</td>
+        <td>{{u.resumen}}</td>
+        <td>{{u.fechaHoraInicio}}</td>
+        <td>{{u.responsable}}</td>
+
+      </tr>
+      {% endfor %}
+
+    </table>
+    {% else %}
+
+    <p>no hay informacion que mostrar </p>
+
+    {%endif%}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django import forms
 from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta, TareaNoc
-from .forms import nuevaTareaForm
+from .forms import nuevaTareaForm, calendarioForm
 from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 
@@ -55,9 +55,10 @@ def calendario(request):
 
 
     #listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    form=calendarioForm
     listaTareas= {}
-    my_dict={'tarealist':listaTareas}
-    return  render(request,'calendario.html',context=my_dict)
+    my_dict={'form':form}
+    return  render(request,'calendario2.html',context=my_dict)
 
 def addTarea(request):
 
@@ -77,13 +78,13 @@ def addTarea(request):
     return render(request,'form.html',{'form':form})
 
 def showTable(request):
-    if 'fecha' in request.GET:
-        date = request.GET['fecha']
+    if 'date' in request.GET:
+        date = request.GET['date']
         print('Esta es la fecha')
         print (date)
         listatareas=TareaNoc.objects.filter(fechaHoraInicio__date=date)
     else:
         date = 'You submitted nothing!'
-
-    my_dict={'tarealist':listatareas}
-    return  render(request,'calendario.html',context=my_dict)
+    form=calendarioForm
+    my_dict={'tarealist':listatareas, 'form':form}
+    return  render(request,'calendario2.html',context=my_dict)

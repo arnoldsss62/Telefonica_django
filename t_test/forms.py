@@ -3,7 +3,15 @@ from django import forms
 from .models import TareaNoc
 from crispy_forms.helper import FormHelper
 from django.contrib.admin import widgets
-from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
+from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput, DatePickerInput
+from django import forms
+
+
+class calendarioForm(forms.Form):
+
+     date = forms.DateField(label='Ingrese la fecha a buscar',
+         widget= DatePickerInput(format='%Y-%m-%d')
+     )
 
 class nuevaTareaForm(forms.ModelForm):
 
