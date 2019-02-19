@@ -6,6 +6,7 @@ from .forms import nuevaTareaForm, calendarioForm, clienteForm
 from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 from django.db.models import DurationField, ExpressionWrapper, F
+from django.core.files.storage import FileSystemStorage
 
 
 
@@ -140,4 +141,3 @@ def upload_file(request):
         fs= FileSystemStorage()
         fs.save(uploaded_file.name,uploaded_file)
     return render (request,'upload.html')
-
