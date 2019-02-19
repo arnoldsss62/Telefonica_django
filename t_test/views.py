@@ -5,6 +5,7 @@ from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,Inf
 from .forms import nuevaTareaForm, calendarioForm
 from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
+from django.db.models import DurationField, ExpressionWrapper, F
 
 
 
@@ -47,7 +48,7 @@ def usuarios(request,id):
 def tareasnoc(request):
 
 
-    listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    listaTareas=TareaNoc.objects.order_by('fechaInicio')
     my_dict={'tarealist':listaTareas}
     return  render(request,'tareasnoc.html',context=my_dict)
 
@@ -82,7 +83,10 @@ def showTable(request):
         date = request.GET['date']
         print('Esta es la fecha')
         print (date)
-        listatareas=TareaNoc.objects.filter(fechaHoraInicio__date=date)
+        listatareas=TareaNoc.objects.filter(fechaInicio=date).annotate(duration=ExpressionWrapper(
+                                           F('horaFin') - F('horaInicio'),
+                                           output_field=DurationField()))
+        print(listatareas[0].duration)
     else:
         date = 'You submitted nothing!'
     form=calendarioForm

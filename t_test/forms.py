@@ -22,12 +22,14 @@ class nuevaTareaForm(forms.ModelForm):
         model=TareaNoc
 
         #fields='__all__'
-        exclude = ('fechaHoraFin',)
+        exclude = ('fechaFin',)
         localized_fields = '__all__'
         labels = {
             'remedy': 'Remedy ',
             'resumen' :  'Resumen',
-            'fechaHoraInicio': 'Fecha de Inicio',
+            'fechaInicio' : 'Fecha de Inicio',
+            'HoraInicio' : 'Hora de Inicio',
+            'HoraFin' : 'Hora de Finalizacion',
             #'fechaHoraFin': 'Fecha de Finalizacion',
             'responsable' : 'Responsable',
             'elementoRed' : 'Elemento de Red',
@@ -43,10 +45,15 @@ class nuevaTareaForm(forms.ModelForm):
         help_texts = {
             'remedy': 'Numero de ticket ',
             'resumen' :  'Resumen',
-            'fechaHoraInicio': 'YYYY:MM:DD',
+            'fechaInicio': 'YYYY:MM:DD',
             'responsable' : 'Nombre de la personsa a cargo',
         }
         widgets = {
-             'fechaHoraInicio': DateTimePickerInput(format='%Y-%m-%d %H:%M:%S'), # specify date-time-frmatç
+             'fechaInicio': DatePickerInput(format='%Y-%m-%d '), # specify date-time-frmatç
              'tiempoRollback': TimePickerInput(),
-         }
+             'HoraInicio' : TimePickerInput(),
+             'HoraFin' : TimePickerInput(),
+
+
+
+             }
