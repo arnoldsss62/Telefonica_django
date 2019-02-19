@@ -27,6 +27,7 @@ urlpatterns = [
     re_path(r'^search/cliente/$', vi.showTable,name='search'),
     path('buscar/',vi.buscarClientes, name='buscaCliente'),
     re_path(r'^buscar/cliente/$', vi.muestraClientes,name='muestra'),
+    path('upload/',vi.upload_file, name='upload'),
 
 
 ]
