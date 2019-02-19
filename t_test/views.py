@@ -131,3 +131,13 @@ def muestraClientes(request):
     my_dict={'tarealist':listatareas, 'form':form, 'cliente': cliente}
 
     return  render(request,'buscaCliente.html',context=my_dict)
+
+
+
+def upload_file(request):
+    if request.method == "POST":
+        uploaded_file = request.FILES['upload']
+        fs= FileSystemStorage()
+        fs.save(uploaded_file.name,uploaded_file)
+    return render (request,'upload.html')
+
