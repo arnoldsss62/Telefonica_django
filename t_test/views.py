@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django import forms
 from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta, TareaNoc
-from .forms import nuevaTareaForm, calendarioForm
+from .forms import nuevaTareaForm, calendarioForm, clienteForm
 from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 from django.db.models import DurationField, ExpressionWrapper, F
@@ -30,7 +30,9 @@ def index (request):
 
         #template = "your_template.html"
     #context = { "form" : NameForm() }
-    tarea=TareaProgramada.objects.filter(infoPlanta__corteS_N=True)
+    tarea=TareaProgramada.objects.all().annotate(duration=ExpressionWrapper(
+                                   F('horaFin') - F('horaInicio'),
+                                   output_field=DurationField()))
 
     my_dict={'tarealista':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")
@@ -48,7 +50,9 @@ def usuarios(request,id):
 def tareasnoc(request):
 
 
-    listaTareas=TareaNoc.objects.order_by('fechaInicio')
+    listaTareas=TareaNoc.objects.order_by('fechaInicio').annotate(duration=ExpressionWrapper(
+                                       F('horaFin') - F('horaInicio'),
+                                       output_field=DurationField()))
     my_dict={'tarealist':listaTareas}
     return  render(request,'tareasnoc.html',context=my_dict)
 
@@ -92,3 +96,38 @@ def showTable(request):
     form=calendarioForm
     my_dict={'tarealist':listatareas, 'form':form}
     return  render(request,'calendario2.html',context=my_dict)
+
+
+#Vista de buscar cliente para encontrar si el cliente tiene trabajaos programados que afectaron su servicio
+
+def buscarClientes(request):
+
+    #listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    form=clienteForm
+
+    listaTareas= {}
+    my_dict={'form':form}
+    return  render(request,'buscaCliente.html',context=my_dict)
+
+
+def muestraClientes(request):
+    listatareas={}
+    if 'codigo' in request.GET:
+        codigo = request.GET['codigo']
+        print('Esta es el codigo de cliente')
+        print (codigo)
+        #Se esta asumiendo que el trabajo es de planta , hacer despues logica para core
+        cliente= Usuario.objects.filter(codigoCliente=codigo)
+        if cliente:
+
+            listatareas=TareaProgramada.objects.filter(infoPlanta__troba=cliente[0].troba).annotate(duration=ExpressionWrapper(
+                                           F('horaFin') - F('horaInicio'),
+                                           output_field=DurationField()))
+
+
+    else:
+        date = 'You submitted nothing!'
+    form=clienteForm
+    my_dict={'tarealist':listatareas, 'form':form, 'cliente': cliente}
+
+    return  render(request,'buscaCliente.html',context=my_dict)

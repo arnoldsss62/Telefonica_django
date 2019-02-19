@@ -7,16 +7,28 @@ from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput, DateP
 from django import forms
 
 
+responsables =(
+        ('ArnoldV','Arnold Velasquez'),
+        ('AdrianM','Adrian Martinez'),
+        ('AlenjandroA','Alejandro  Alvarez')
+
+)
+
 class calendarioForm(forms.Form):
 
      date = forms.DateField(label='Ingrese la fecha a buscar',
          widget= DatePickerInput(format='%Y-%m-%d')
      )
+class clienteForm(forms.Form):
+
+     codigo = forms.IntegerField(label='Ingrese el codigo de cliente correspondiente',)
 
 class nuevaTareaForm(forms.ModelForm):
 
     helper=FormHelper()
     helper.form_show_labels=True
+    resumen=forms.CharField(widget=forms.Textarea(attrs={'width':"100%", 'cols' : "80", 'rows': "5", }))
+    responsable=forms.ChoiceField(widget=forms.Select, choices=responsables)
 
     class Meta():
         model=TareaNoc
@@ -28,8 +40,8 @@ class nuevaTareaForm(forms.ModelForm):
             'remedy': 'Remedy ',
             'resumen' :  'Resumen',
             'fechaInicio' : 'Fecha de Inicio',
-            'HoraInicio' : 'Hora de Inicio',
-            'HoraFin' : 'Hora de Finalizacion',
+            'horaInicio' : 'Hora de Inicio',
+            'horaFin' : 'Hora de Finalizacion',
             #'fechaHoraFin': 'Fecha de Finalizacion',
             'responsable' : 'Responsable',
             'elementoRed' : 'Elemento de Red',
@@ -51,8 +63,8 @@ class nuevaTareaForm(forms.ModelForm):
         widgets = {
              'fechaInicio': DatePickerInput(format='%Y-%m-%d '), # specify date-time-frmatç
              'tiempoRollback': TimePickerInput(),
-             'HoraInicio' : TimePickerInput(),
-             'HoraFin' : TimePickerInput(),
+             'horaInicio' : TimePickerInput(),
+             'horaFin' : TimePickerInput(),
 
 
 

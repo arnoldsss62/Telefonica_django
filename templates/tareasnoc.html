@@ -9,16 +9,20 @@
       <thead>
         <th>Remedy</th>
         <th>Resumen </th>
-        <th>Fecha de Inicio</th>
+        <th>Fecha de Corte</th>
         <th> Responsable</th>
+        <th>Elemento de red afectado</th>
+        <th>Duración del evento</th>
       </thead>
 
     {%for u in tarealist %}
     <tr>
       <td>{{u.remedy}}</td>
       <td>{{u.resumen}}</td>
-      <td>{{u.fechaInicio}}</td>
+      <td>{{u.fechaFin}}</td>
       <td>{{u.responsable}}</td>
+      <td>{{u.elementoRed}}</td>
+      <td>{{u.duration}}</td>
     </tr>
     {% endfor %}
   </table>

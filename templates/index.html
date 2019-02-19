@@ -14,17 +14,15 @@
     <table class="table table-hover table-stripped">
       <thead>
         <th>Remedy</th>
-        <th>Fecha de Inicio</th>
-        <th>Fecha Fin</th>
+        <th>Fecha de Corte</th>
         <th>Tiempo de afectaccion</th>
         <th>Lista Usuarios</th>
       </thead>
     {%for t in tarealista%}
     <tr>
       <td>{{t.infoPlanta.remedy}}</td>
-      <td>{{t.fechaInicio}}</td>
-      <td>{{t.fechaFin}}</td>
-      <td>{% if t.infoPlanta.corteS_N == True%}Afectado{% endif %}</td>
+      <td>{{t.fecha}}</td>
+      <td>{{t.duration}}</td>
       <td >
         <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
       </td>
