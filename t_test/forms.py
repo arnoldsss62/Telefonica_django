@@ -14,6 +14,10 @@ responsables =(
 
 )
 
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
+
 class calendarioForm(forms.Form):
 
      date = forms.DateField(label='Ingrese la fecha a buscar',
