@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-md-4">
 
-    <form  action="/search/cliente" method="GET" >
+    <form  action="/search/trabajo" method="GET" >
       {{form|crispy}}
       <!--<button type="submit" class="btn btn-primary">Submit</button>-->
       <button type="submit" class="btn btn-success">
@@ -25,7 +25,6 @@
 <h2></h2>
 <h2>TAREAS NOC</h2>
 <div class="row">
-  <div class >
     {%if tarealist%}
       <table class="table table-hover table-stripped">
         <thead>
@@ -50,8 +49,10 @@
 
     </table>
     {% else %}
+    <div class="col-md-5">
+      <p>No hay informacion que mostrar </p>
 
-    <p>no hay informacion que mostrar </p>
+
 
     {%endif%}
 

@@ -84,18 +84,24 @@ def addTarea(request):
     return render(request,'form.html',{'form':form})
 
 def showTable(request):
+    listaTareas={}
     if 'date' in request.GET:
         date = request.GET['date']
         print('Esta es la fecha')
         print (date)
-        listatareas=TareaNoc.objects.filter(fechaInicio=date).annotate(duration=ExpressionWrapper(
-                                           F('horaFin') - F('horaInicio'),
-                                           output_field=DurationField()))
-        print(listatareas[0].duration)
+        listatareas=TareaNoc.objects.filter(fechaInicio=date)
+        print('aun no entra')
+        if listatareas:
+            print('Hay tareas')
+            listaTareas=listatareas.annotate(duration=ExpressionWrapper(
+                                               F('horaFin') - F('horaInicio'),
+                                            output_field=DurationField()))
+            print(listaTareas[0].duration)
+
     else:
         date = 'You submitted nothing!'
     form=calendarioForm
-    my_dict={'tarealist':listatareas, 'form':form}
+    my_dict={'tarealist':listaTareas, 'form':form}
     return  render(request,'calendario2.html',context=my_dict)
 
 
@@ -136,7 +142,7 @@ def muestraClientes(request):
 
 
 def upload_file(request):
-    if request.method == "POST":
+    if request.method == "POST" and ('upload' in request.FILES):
         uploaded_file = request.FILES['upload']
         fs= FileSystemStorage()
         fs.save(uploaded_file.name,uploaded_file)
