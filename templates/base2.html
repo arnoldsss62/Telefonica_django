@@ -40,20 +40,27 @@
 
     {% endblock %}
 
+
+
+
 </head>
 
 <body>
+        <div id = "contenedor_carga">
+                <div id ="carga">
+                </div>
+            </div>
 
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a href="{% url 'index' %}">TELEFONICA</a></h3>
+                <a href="{% url 'index' %}">&nbsp;&nbsp;TELEFONICA</a>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="{% url 'buscaCliente'%}">Busqueda de cliente</a>
@@ -62,16 +69,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{% url 'tareasnoc' %}">Tareas NOC</a>
+                    <a href="{% url 'tareasnoc' %}"><i class="fas fa-tasks"></i> &nbsp;&nbsp;Tareas NOC</a>
                 </li>
                 <li>
-                    <a href="{% url 'formulario' %}">Formulario</a>
+                    <a href="{% url 'formulario' %}"><i class="fas fa-user-check"></i>&nbsp;&nbsp;Form</a>
                 </li>
                 <li>
-                    <a href="{% url 'calendario' %}">Calendario</a>
+                    <a href="{% url 'calendario' %}"><i class="fas fa-sun"></i>&nbsp;&nbsp;Calendar</a>
                 </li>
                 <li>
-                    <a href="{% url 'upload' %}">Upload</a>
+                    <a href="{% url 'upload' %}"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Upload</a>
                 </li>
 
                 <!--
@@ -166,7 +173,7 @@
     {% endblock %}
 
 
-
+<script src = "{%static 'script.js'%}"></script>
 </body>
 
 </html>

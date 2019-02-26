@@ -6,7 +6,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     /* antes era fafafa */
-    background: #e6f9f7;
+    background: #FFF;
 }
 
 p {
@@ -27,12 +27,15 @@ a:focus {
 
 .navbar {
     /* padding: 15px 10px;  para que no este tan separado */
-    background: #fff;
+    
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+
+
 
 .navbar-btn {
     box-shadow: none;
@@ -43,13 +46,16 @@ a:focus {
 .line {
     width: 100%;
     height: 1px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed #4E3AD8;
     margin: 40px 0;
 }
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
+
+
 
 .wrapper {
     display: flex;
@@ -63,10 +69,18 @@ a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #000;
     color: #fff;
     transition: all 0.3s;
 }
+
+
+
+#sidebar-header:hover{
+    color: #000;
+    background: #fff;
+}
+
 
 #sidebar.active {
     margin-left: -250px;
@@ -74,12 +88,12 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    
 }
 
 #sidebar ul p {
@@ -94,14 +108,15 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #000;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #000;
+    
 }
 
 a[data-toggle="collapse"] {
@@ -119,7 +134,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    
 }
 
 ul.CTAs {
@@ -136,12 +151,12 @@ ul.CTAs a {
 
 a.download {
     background: #fff;
-    color: #7386D5;
+    
 }
 
 a.article,
 a.article:hover {
-    background: #6d7fcc !important;
+    
     color: #fff !important;
 }
 
@@ -158,6 +173,48 @@ a.article:hover {
     top: 0;
     right: 0;
 }
+
+#contenedor_carga{
+    background-color: rgba(250, 240, 245,0.9);
+    height:100%;
+    width: 100%;
+    position:fixed;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index:10000;
+    
+
+}
+
+#carga{
+
+    border :15px solid #CCC;
+    border-top-color: #f4266a;
+    border-top-style: groove;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    
+    position:absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    -webkit-animation: girar 1.5s linear infinite;
+    -o-animation: girar 1.5s linear infinite;
+    animation: girar 1.5s linear infinite;
+
+}
+
+@keyframes girar{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+
+
 
 #content.active {
     width: 100%;
@@ -184,3 +241,16 @@ a.article:hover {
         display: none;
     }
 }
+
+
+.zoon{
+    transition:transform .5s;
+    margin-left: 30px;
+  }
+  .zoon:hover{
+    transform: scale(1.5);
+  }
+
+
+
+

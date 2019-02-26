@@ -45,7 +45,7 @@ class InfoPlanta(models.Model):
     remedy=models.CharField(max_length=100)
     estado=models.CharField(max_length=45)
     corteS_N=models.CharField(max_length=10)
-    tipoTrabajo=models.CharField(max_length=45,blank=True)
+    tipoTrabajo=models.CharField(max_length=45)
     troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
 
     def __str__(self):

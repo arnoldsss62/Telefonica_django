@@ -7,7 +7,6 @@ from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 from django.db.models import DurationField, ExpressionWrapper, F
 from django.core.files.storage import FileSystemStorage
-from dataPLANTA import Populate as pop
 
 
 
@@ -32,11 +31,9 @@ def index (request):
 
         #template = "your_template.html"
     #context = { "form" : NameForm() }
-    tarea=TareaProgramada.objects.all()
-    if tarea:
-        tarea=tarea.annotate(duration=ExpressionWrapper(
-                                       F('horaFin') - F('horaInicio'),
-                                       output_field=DurationField()))
+    tarea=TareaProgramada.objects.all().annotate(duration=ExpressionWrapper(
+                                   F('horaFin') - F('horaInicio'),
+                                   output_field=DurationField()))
 
     my_dict={'tarealista':tarea}
     #return HttpResponse("<b><u>Hello World</u></b>")
@@ -54,11 +51,9 @@ def usuarios(request,id):
 def tareasnoc(request):
 
 
-    listaTareas=TareaNoc.objects.order_by('fechaInicio')
-    if listaTareas:
-        listaTareas=listaTareas.annotate(duration=ExpressionWrapper(
-                                           F('horaFin') - F('horaInicio'),
-                                           output_field=DurationField()))
+    listaTareas=TareaNoc.objects.order_by('fechaInicio').annotate(duration=ExpressionWrapper(
+                                       F('horaFin') - F('horaInicio'),
+                                       output_field=DurationField()))
     my_dict={'tarealist':listaTareas}
     return  render(request,'tareasnoc.html',context=my_dict)
 
@@ -150,10 +145,5 @@ def upload_file(request):
     if request.method == "POST" and ('upload' in request.FILES):
         uploaded_file = request.FILES['upload']
         fs= FileSystemStorage()
-        print(uploaded_file.name)
-        fs.delete("ExcelMovistar1.xlsx")
-        fs.save("ExcelMovistar1.xlsx",uploaded_file)
-        fs.save('backup/'+uploaded_file.name,uploaded_file)
-        pop(100)
-
+        fs.save(uploaded_file.name,uploaded_file)
     return render (request,'upload.html')
