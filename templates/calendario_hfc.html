@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4">
+
+    <form  action="/search/trabajo_hfc" method="GET" >
+      {{form|crispy}}
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+      <button type="submit" class="btn btn-success">
+    <i class="icon-circle-arrow-right icon-large"></i> Ingresar
+  </button>
+    </form>
+  </div>
+</div>
+
+<h2></h2>
+<h2>TAREAS PLANTA</h2>
+<div class="row">
+    {%if tarealist %}
+
+      <table class="table table-hover table-stripped">
+        <thead>
+          <th>Remedy</th>
+          <th>Tipo de trabajo </th>
+          <th>Elemento de red afectado</th>
+          <th>Duración</th>
+          <th> Fecha de Inicio </th>
+        </thead>
+
+      {%for u in tarealist %}
+        {%if u.area == 'Planta' %}
+      <tr>
+        <td>{{u.infoPlanta.remedy}}</td>
+        <td>{{u.infoPlanta.tipoTrabajo}}</td>
+        <td>{{u.infoPlanta.troba.trobaNombre}}</td>
+        <td>{{u.duration}}</td>
+        <td>{{u.fecha}}</td>
+      </tr>
+        {%endif%}
+      {% endfor %}
+
+    </table>
+    {% else %}
+  <div class="col-md-5">
+      <p>No hay informacion que mostrar </p>
+    {%endif%}
+  </div>
+
+  <h2></h2>
+<div class="col-md-6">
+  <h2>TAREAS CORE</h2>
+</div>
+
+    {%if tarealist%}
+      <table class="table table-hover table-stripped">
+        <thead>
+          <th>Remedy</th>
+          <th>Grupo Coordinador </th>
+          <th>Remitente</th>
+          <th>Duración</th>
+          <th>Zona de afectaccion </th>
+          <th> Fecha de Inicio </th>
+        </thead>
+
+      {%for u in tarealist %}
+      {%if u.area == 'Core' %}
+      <tr>
+        <td>{{u.infoCore.remedy}}</td>
+        <td>{{u.infoCore.grupoCoordinador}}</td>
+        <td>{{u.infoCore.remitente}}</td>
+        <td>{{u.duration}}</td>
+        <td>{{u.infoCore.site}}</td>
+        <td>{{u.fecha}}</td>
+      </tr>
+        {% endif %}
+      {% endfor %}
+
+    </table>
+    {% else %}
+    <div class="col-md-5">
+      <p>No hay informacion que mostrar </p>
+
+
+
+    {%endif%}
+
+  </div>
+</div>
+
+{% endblock %}

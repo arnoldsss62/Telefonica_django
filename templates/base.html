@@ -37,7 +37,7 @@
     {% endblock %}
 
 
-    
+
 
 
 
@@ -61,7 +61,10 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="{%url 'buscaCliente' %}">Buscar Cliente</a>
+                            <a href="{%url 'buscaCliente' %}"><i class="fas fa-search"></i>&nbsp;&nbsp;Buscar Cliente</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'calendario_hfc' %}"><i class="fas fa-sun"></i>&nbsp;&nbsp;Calendar HFC</a>
                         </li>
 
                     </ul>
@@ -87,7 +90,7 @@
                             <a href="#">Page 1</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>  
+                            <a href="#">Page 2</a>
                         </li>
                         <li>
                             <a href="#">Page 3</a>
