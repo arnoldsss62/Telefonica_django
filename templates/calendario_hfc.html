@@ -32,7 +32,7 @@
           <th>Remedy</th>
           <th>Tipo de trabajo </th>
           <th>Elemento de red afectado</th>
-          <th>Duración</th>
+          <th>Duración(hh:mm:ss)</th>
           <th> Fecha de Inicio </th>
         </thead>
 
@@ -41,8 +41,8 @@
       <tr>
         <td>{{u.infoPlanta.remedy}}</td>
         <td>{{u.infoPlanta.tipoTrabajo}}</td>
-        <td>{{u.infoPlanta.troba.trobaNombre}}</td>
-        <td>{{u.duration}}</td>
+        <td> Troba-{{u.infoPlanta.troba.trobaNombre}}</td>
+        <td>{{u.duration}} </td>
         <td>{{u.fecha}}</td>
       </tr>
         {%endif%}

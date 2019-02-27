@@ -184,4 +184,13 @@ def upload_file(request):
         fs.save(EXCEL_DIR+uploaded_file.name,uploaded_file)
         fs.save('ExcelMovistar1.xlsx',uploaded_file)
         ###EJECUTAR TU FUNCION ADRIAN
+    elif request.method == "POST" and ('upload_remd' in request.FILES):
+        uploaded_file = request.FILES['upload_remd']
+        fs= FileSystemStorage()
+        print(EXCEL_DIR)
+        if fs.exists('Remedy.xlsx'):
+                    fs.delete('Remedy.xlsx')
+        fs.save(EXCEL_DIR+uploaded_file.name,uploaded_file)
+        fs.save('Remedy.xlsx',uploaded_file)
+        ###EJECUTAR TU FUNCION ADRIAN
     return render (request,'upload.html')

@@ -15,8 +15,8 @@
       <thead>
         <th>Remedy</th>
         <th>Tipo de trabajo </th>
-        <th>Elemento de red afectado</th>
-        <th>Duración</th>
+        <th>Elemento de red afectado </th>
+        <th>Duración (hh:mm:ss)</th>
         <th> Fecha de Inicio </th>
         <th>Lista Usuarios</th>
       </thead>
@@ -25,7 +25,7 @@
     <tr>
       <td>{{t.infoPlanta.remedy}}</td>
       <td>{{t.infoPlanta.tipoTrabajo}}</td>
-      <td>{{t.infoPlanta.troba.trobaNombre}}</td>
+      <td> Troba-{{t.infoPlanta.troba.trobaNombre}}</td>
       <td>{{t.duration}}</td>
       <td>{{t.fecha}}</td>
       <td >
@@ -36,7 +36,8 @@
     {% endfor %}
   </table>
   {% else %}
-  <p>no hay informacion que mostrar </p>
+
+  <div class="col-md-4"><p>no hay informacion que mostrar </p></div>
   {%endif%}
 </div>
 
