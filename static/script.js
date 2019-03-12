@@ -12,6 +12,7 @@ function cerrar(){
 
 
     sidebar.style.width = "90px";
+    document.getElementById("TN").style.display = "none";
     document.getElementById("BC").style.display = "none";
     document.getElementById("Upload").style.display = "none";
     document.getElementById("Calendar").style.display = "none";
@@ -26,9 +27,9 @@ function cerrar(){
 function abrir(){
 
     sidebar.style.width = "250px";
-   document.getElementById("TN").style.displat = "block";
-   document.getElementById("BC").style.display = "blck";
-   document.getElementById("Upload").style.display = "blck";
+   document.getElementById("TN").style.display = "block";
+   document.getElementById("BC").style.display = "block";
+   document.getElementById("Upload").style.display = "block";
    document.getElementById("Calendar").style.display = "block";
    document.getElementById("Form").style.display = "block";
    document.getElementById("home").style.display = "block";

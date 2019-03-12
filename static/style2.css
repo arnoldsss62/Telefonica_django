@@ -313,33 +313,33 @@ background: #F8F8F8;
 
 #TN{
 
-
-    display: inline-block;
+    
+    transition: 0.3;
 }
 
 
 #BC{
-    display: inline-block;
+    transition: 0.3;
 }
 
 
 #Upload{
-    display: inline-block;
+    transition: 0.3;
 
 }
 
 #Calendar{
 
-    display: inline-block;
+    transition: 0.3;
 }
 
 
 #Form{
-    display: inline-block;
+    transition: 0.3;
     
 }
 
 #home{
-    display: inline-block;
+    transition: 0.3;
 
 }
