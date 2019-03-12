@@ -2,6 +2,7 @@
 
 {% extends "base2.html" %}
 {% block content %}
+<div id = "TN_content">
 <h2>TAREAS NOC</h2>
 <div >
   {%if tarealist%}
@@ -29,5 +30,7 @@
   {% else %}
   <p>no hay informacion que mostrar </p>
   {%endif%}
+</div>
+
 </div>
 {% endblock %}

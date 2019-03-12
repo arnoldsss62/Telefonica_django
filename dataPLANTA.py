@@ -10,22 +10,12 @@ from django.utils.timezone import make_aware
 import django
 
 
-
-
-#fake script
-
-
-
-
-
-
-
 def Populate(A):
     django.setup()
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     MEDIA_DIR= os.path.join(BASE_DIR,'Telefonica_django/media')
 
-    df=pd.read_excel(MEDIA_DIR+"/ExcelMovistar1.xlsx")
+    df=pd.read_excel(MEDIA_DIR+"ExcelMovistar1.xlsx")
 
     datos_Jefatura= df['Jefatura']
     datos_NODO=df['NODO']
@@ -69,4 +59,4 @@ if __name__ == '__main__':
     print('Populando la DB')
     print(len(df))
     ctd=len(df)
-    Populate(100)
+    Populate(ctd)

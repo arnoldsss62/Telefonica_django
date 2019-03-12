@@ -37,11 +37,13 @@ crossorigin="anonymous"></script>
 
 {% block content %}
 
+<div id = "calendario_content">
+
   <div class="row">
     <div class="col-md-4">
         <h5>Ingrese fecha deseada</h5>
         <form action="/search/" method="GET">
-            <input  placeholder='Haga click aquí' "type="text" id="date" class="datepicker" name="fecha">
+            <input  placeholder='Haga click aquí' type="text" id="date" class="datepicker" name="fecha">
 
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
@@ -83,6 +85,8 @@ crossorigin="anonymous"></script>
 
     </div>
   </div>
+
+</div>
 
 {% endblock %}
 

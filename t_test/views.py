@@ -7,7 +7,10 @@ from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 from django.db.models import DurationField, ExpressionWrapper, F
 from django.core.files.storage import FileSystemStorage
+import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EXCEL_DIR= os.path.join(BASE_DIR,'media/backup/')
 
 
 # Create your views here.
@@ -66,6 +69,15 @@ def calendario(request):
     my_dict={'form':form}
     return  render(request,'calendario2.html',context=my_dict)
 
+def calendario_hfc(request):
+
+
+    #listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    form=calendarioForm
+    listaTareas= {}
+    my_dict={'form':form}
+    return  render(request,'calendario_hfc.html',context=my_dict)
+
 def addTarea(request):
 
     form = nuevaTareaForm
@@ -103,6 +115,27 @@ def showTable(request):
     form=calendarioForm
     my_dict={'tarealist':listaTareas, 'form':form}
     return  render(request,'calendario2.html',context=my_dict)
+
+def showTable_hfc(request):
+    listaTareas={}
+    if 'date' in request.GET:
+        date = request.GET['date']
+        print('Esta es la fecha')
+        print (date)
+        listatareas=TareaProgramada.objects.filter(fecha=date)
+        print('aun no entra')
+        if listatareas:
+            print('Hay tareas')
+            listaTareas=listatareas.annotate(duration=ExpressionWrapper(
+                                               F('horaFin') - F('horaInicio'),
+                                            output_field=DurationField()))
+            print(listaTareas[0].duration)
+
+    else:
+        date = 'You submitted nothing!'
+    form=calendarioForm
+    my_dict={'tarealist':listaTareas, 'form':form}
+    return  render(request,'calendario_hfc.html',context=my_dict)
 
 
 #Vista de buscar cliente para encontrar si el cliente tiene trabajaos programados que afectaron su servicio
@@ -145,5 +178,21 @@ def upload_file(request):
     if request.method == "POST" and ('upload' in request.FILES):
         uploaded_file = request.FILES['upload']
         fs= FileSystemStorage()
-        fs.save(uploaded_file.name,uploaded_file)
+        print(EXCEL_DIR)
+        if fs.exists('ExcelMovistar1.xlsx'):
+                    fs.delete('ExcelMovistar1.xlsx')
+        fs.save(EXCEL_DIR+uploaded_file.name,uploaded_file)
+        fs.save('ExcelMovistar1.xlsx',uploaded_file)
+        os.system('dataPLANTA.py')
+
+    elif request.method == "POST" and ('upload_remd' in request.FILES):
+        uploaded_file = request.FILES['upload_remd']
+        fs= FileSystemStorage()
+        print(EXCEL_DIR)
+        if fs.exists('Remedy.xlsx'):
+                    fs.delete('Remedy.xlsx')
+        fs.save(EXCEL_DIR+uploaded_file.name,uploaded_file)
+        fs.save('Remedy.xlsx',uploaded_file)
+        os.system('dataCORE.py')
+        ###EJECUTAR TU FUNCION ADRIAN
     return render (request,'upload.html')

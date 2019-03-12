@@ -1,10 +1,11 @@
 from django.db import models
+#Author: Arnold Velasquez  Ortiz
 
 # Create your models here.
 
 class Cmts(models.Model):
     cmtsId=models.AutoField(primary_key=True)
-    cmtsNombre=models.CharField(max_length=20)
+    cmtsNombre=models.CharField(max_length=20)# No usar jefatura xd, aqui va relacion de jose veliz
 
     def __str__(self):
         return self.cmtsNombre
@@ -46,6 +47,7 @@ class InfoPlanta(models.Model):
     estado=models.CharField(max_length=45)
     corteS_N=models.CharField(max_length=10)
     tipoTrabajo=models.CharField(max_length=45)
+    site=models.CharField(max_length=45)#solo para rellenar :v
     troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -58,8 +60,8 @@ class InfoCore(models.Model):
     remitente=models.CharField(max_length=45)
     grupoCoordinador=models.CharField(max_length=45)
     riesgo=models.SmallIntegerField()
-    site=models.CharField(max_length=45)
-    cmts=models.ForeignKey(Cmts,on_delete=models.CASCADE)
+    site=models.CharField(max_length=45)#zona para mostrar a la area comercial y asociar a los CMTS, inexacto
+    #cmts=models.ForeignKey(Cmts,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.remedy

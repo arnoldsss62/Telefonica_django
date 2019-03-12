@@ -6,32 +6,39 @@
 {% block content %}
 <div class="row">
 
-
+    <div class = " col-md-12" id = "content_tra_pro">
+        
+          {%if tarealista%}
+            <table class="table table-hover table-stripped">
+              <thead>
+                <th>Remedy</th>
+                <th>Tipo de trabajo </th>
+                <th>Elemento de red afectado </th>
+                <th>Duración (hh:mm:ss)</th>
+                <th> Fecha de Inicio </th>
+                <th>Lista Usuarios</th>
+              </thead>
+            {%for t in tarealista%}
+              {%if t.area == 'Planta' %}
+            <tr>
+              <td>{{t.infoPlanta.remedy}}</td>
+              <td>{{t.infoPlanta.tipoTrabajo}}</td>
+              <td> Troba-{{t.infoPlanta.troba.trobaNombre}}</td>
+              <td>{{t.duration}}</td>
+              <td>{{t.fecha}}</td>
+              <td >
+                <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
+              </td>
+            </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+          {% else %}
+        
+          <div class="col-md-4"><p>no hay informacion que mostrar </p></div>
+          {%endif%}
+        </div>
 </div>
 
-<div >
-  {%if tarealista%}
-    <table class="table table-hover table-stripped">
-      <thead>
-        <th>Remedy</th>
-        <th>Fecha de Corte</th>
-        <th>Tiempo de afectaccion</th>
-        <th>Lista Usuarios</th>
-      </thead>
-    {%for t in tarealista%}
-    <tr>
-      <td>{{t.infoPlanta.remedy}}</td>
-      <td>{{t.fecha}}</td>
-      <td>{{t.duration}}</td>
-      <td >
-        <a  href="{% url 't_test:usuarios' t.infoPlanta.troba.trobaId  %}"><i class='fas fa-users' style='font-size:36px'></i></a>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
-  {% else %}
-  <p>no hay informacion que mostrar </p>
-  {%endif%}
-</div>
 
 {% endblock %}

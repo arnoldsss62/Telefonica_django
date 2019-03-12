@@ -9,6 +9,8 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<div id = "cliente_content">
+
 <div class="row">
   <div class="col-md-4">
 
@@ -30,9 +32,9 @@
       <table class="table table-hover table-stripped">
         <thead>
           <th>Usuario</th>
-          <th>Trabajo afectado(CRQ)</th>
+          <th>Trabajo programado(CRQ)</th>
           <th>Elemento de red afectado </th>
-          <th>Duración</th>
+          <th>Duración(hh:mm:ss)</th>
           <th>Fecha de Corte </th>
         </thead>
 
@@ -62,9 +64,8 @@
 
 
 <button
-      type  = "submit" name = "report" class="btn btn-success" > <i class="icon-circle-arrow-right icon-large"></i> Reporte de usuario  
+      type  = "submit" name = "report" class="btn btn-success" > <i class="icon-circle-arrow-right icon-large"></i> Reporte de usuario
 </button>
+
+</div>
 {% endblock %}
-
-
-

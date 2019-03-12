@@ -46,39 +46,63 @@
 </head>
 
 <body>
+
         <div id = "contenedor_carga">
                 <div id ="carga">
                 </div>
             </div>
 
+
+    <div id = "header">
+        <button type="button" id="sidebarCollapse" class="btn btn-info"  onclick = "abrir_cerrar()"   >
+                <i class="fas fa-align-left"></i>
+                
+            </button>
+
+            <span>&nbsp;&nbsp;DASHBOARD</span>
+            <div id = "img">
+
+            <img src =" {% static '/img/Movistar.png' %} " width="60px" height="50px"> </div>
+
+        </div>
+
+
+        
+
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="{% url 'index' %}">&nbsp;&nbsp;TELEFONICA</a>
+                   
+                <a href="{% url 'index' %}"><i class="fas fa-home"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "home">Home</div></span></a>
             </div>
 
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="{% url 'buscaCliente'%}">Busqueda de cliente</a>
-                        </li>
+           
 
-                    </ul>
+                <li><a href="{% url 'buscaCliente'%}"><i class="fas fa-search"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "BC">Buscar Cliente</div></span></a></li>
+               <!-- <li class="active">-->
+                    <!---<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-home"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</span></a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">-->
+                       <!--- <li>
+                            <a href="{% url 'buscaCliente'%}"><i class="fas fa-search"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buscar cliente</span></a>
+                        </li>-->
+                        <!----<li>
+                            <a href="{% url 'calendario_hfc' %}"><i class="fas fa-sun"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar HFC</span></a>
+                        </li>-->
+
+                    
                 </li>
                 <li>
-                    <a href="{% url 'tareasnoc' %}"><i class="fas fa-tasks"></i> &nbsp;&nbsp;Tareas NOC</a>
+                    <a href="{% url 'tareasnoc' %}"><i class="fas fa-tasks"></i><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "TN">Tareas NOC</div></span></a>
                 </li>
                 <li>
-                    <a href="{% url 'formulario' %}"><i class="fas fa-user-check"></i>&nbsp;&nbsp;Form</a>
+                    <a href="{% url 'formulario' %}"><i class="fas fa-user-check"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "Form">Form</div></span></a>
                 </li>
                 <li>
-                    <a href="{% url 'calendario' %}"><i class="fas fa-sun"></i>&nbsp;&nbsp;Calendar</a>
+                    <a href="{% url 'calendario' %}"><i class="fas fa-sun"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "Calendar">Calendar</div></span></a>
                 </li>
                 <li>
-                    <a href="{% url 'upload' %}"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Upload</a>
+                    <a href="{% url 'upload' %}"><i class="fas fa-cloud-upload-alt"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "Upload">Upload</div></span></a>
                 </li>
 
                 <!--
@@ -124,19 +148,7 @@
 
 
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Despliega aqui</span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    </div>
-                </div>
-            </nav>
+        
 
             {% block content %}
 
@@ -154,19 +166,7 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar, #content').toggleClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
+    
 
     {% block fin %}
 

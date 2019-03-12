@@ -13,7 +13,7 @@
 
 
 
-
+<div id = "content_upload">
 <h3>Remedy</h3>
 
 <form  method="post" enctype="multipart/form-data">{% csrf_token %}
@@ -27,10 +27,12 @@
 <h3>Movistar 1</h3>
 <form  method="post" enctype="multipart/form-data">{% csrf_token %}
     Seleccione un archivo Excel:<br>
-    <input type =  "file" name = "upload">
+    <input type =  "file" name = "upload_remd">
     <input type = "submit" value="subir archivo" name = "submit">
-    
+
 
 </form>
+
+</div>
 
 {% endblock %}
