@@ -23,6 +23,17 @@ class calendarioForm(forms.Form):
      date = forms.DateField(label='Ingrese la fecha a buscar',
          widget= DatePickerInput(format='%Y-%m-%d')
      )
+class listarForm(forms.Form):
+
+     fechaInicio = forms.DateField(label='Ingrese la fecha inicio',
+         widget= DatePickerInput(format='%Y-%m-%d')
+     )
+     fechaFin = forms.DateField(label='Ingrese la fecha fin',
+         widget= DatePickerInput(format='%Y-%m-%d')
+     )
+
+
+
 class clienteForm(forms.Form):
 
      codigo = forms.IntegerField(label='Ingrese el codigo de cliente correspondiente',)

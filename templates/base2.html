@@ -56,7 +56,7 @@
     <div id = "header">
         <button type="button" id="sidebarCollapse" class="btn btn-info"  onclick = "abrir_cerrar()"   >
                 <i class="fas fa-align-left"></i>
-                
+
             </button>
 
             <span>&nbsp;&nbsp;DASHBOARD</span>
@@ -67,17 +67,17 @@
         </div>
 
 
-        
+
 
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                   
+
                 <a href="{% url 'index' %}"><i class="fas fa-home"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "home">Home</div></span></a>
             </div>
 
-           
+
 
                 <li><a href="{% url 'buscaCliente'%}"><i class="fas fa-search"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "BC">Buscar Cliente</div></span></a></li>
                <!-- <li class="active">-->
@@ -90,7 +90,7 @@
                             <a href="{% url 'calendario_hfc' %}"><i class="fas fa-sun"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar HFC</span></a>
                         </li>-->
 
-                    
+
                 </li>
                 <li>
                     <a href="{% url 'tareasnoc' %}"><i class="fas fa-tasks"></i><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "TN">Tareas NOC</div></span></a>
@@ -104,7 +104,9 @@
                 <li>
                     <a href="{% url 'upload' %}"><i class="fas fa-cloud-upload-alt"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "Upload">Upload</div></span></a>
                 </li>
-
+                <li>
+                    <a href="{% url 'listar_usuarios' %}"><i class="fas fa-user-friends"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id = "Lista">Lista usarios</div></span></a>
+                </li>
                 <!--
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -148,7 +150,7 @@
 
 
 
-        
+
 
             {% block content %}
 
@@ -166,7 +168,7 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    
+
 
     {% block fin %}
 

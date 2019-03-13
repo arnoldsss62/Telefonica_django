@@ -2,12 +2,13 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django import forms
 from t_test.models import Cmts,Nodo,Troba, Usuario, TareaProgramada,InfoCore,InfoPlanta, TareaNoc
-from .forms import nuevaTareaForm, calendarioForm, clienteForm
+from .forms import nuevaTareaForm, calendarioForm, clienteForm, listarForm
 from bootstrap_datepicker_plus import DateTimePickerInput,TimePickerInput
 from django.views import generic
 from django.db.models import DurationField, ExpressionWrapper, F
 from django.core.files.storage import FileSystemStorage
 import os
+import datetime as d
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXCEL_DIR= os.path.join(BASE_DIR,'media/backup/')
@@ -196,3 +197,44 @@ def upload_file(request):
         os.system('dataCORE.py')
         ###EJECUTAR TU FUNCION ADRIAN
     return render (request,'upload.html')
+
+
+#Listar usuarios afectados por trabajos programados en un lapso de tiempo
+
+def listar_usuarios(request):
+
+
+    #listaTareas=TareaNoc.objects.order_by('fechaHoraInicio')
+    form=listarForm
+    listaTareas= {}
+    my_dict={'form':form}
+    return  render(request,'lista_usuarios.html',context=my_dict)
+
+##Tabla para mostrar usuarios
+
+def showUsuarios(request):
+    listaTareas={}
+    if 'fechaInicio' and 'fechaFin'  in request.GET:
+        fechaInicio = request.GET['fechaInicio']
+        f1,f2,f3=fechaInicio.split('-')
+        fechaFin=request.GET['fechaFin']
+        fa,fb,fc=fechaFin.split('-')
+        print(fechaInicio)
+        if fechaFin > fechaInicio:
+            listatareas=TareaProgramada.objects.filter(fecha__gte=d.date(int(f1),int(f2),int(f3)),fecha__lte=d.date(int(fa),int(fb),int(fc))).filter(area='Planta')
+            if listatareas:
+                print('Aqui estoy :)')
+                print(listatareas)
+                listaT=[]
+                for u in listatareas:
+                    print(u.infoPlanta.troba)
+                    listaT=listaT+[u.infoPlanta.troba]
+                querySet=Usuario.objects.filter(troba=listaT[0])
+                for t in listaT[1:]:
+                    querySet=querySet | Usuario.objects.filter(troba=t)
+
+    else:
+        fechaInicio = 'You submitted nothing!'
+    form=listarForm
+    my_dict={'listaUsuarios':querySet, 'form':form}
+    return  render(request,'lista_usuarios.html',context=my_dict)

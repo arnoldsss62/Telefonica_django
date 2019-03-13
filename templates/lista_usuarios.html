@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div id = "calendario_content">
+  <div id = "calendario_header"><a>CALENDARIO</a></div>
+
+<div class="row">
+  <div class="col-md-4">
+
+    <form  action="/listar/fecha" method="GET" >
+      {{form|crispy}}
+      <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+      <button type="submit" class="btn btn-success">
+    <i class="icon-circle-arrow-right icon-large"></i> Ingresar
+  </button>
+    </form>
+  </div>
+</div>
+
+
+
+
+<h2></h2>
+<h2>TAREAS NOC</h2>
+<div class="row">
+    {%if listaUsuarios%}
+      <table class="table table-hover table-stripped">
+        <thead>
+          <th>Codigo de cliente</th>
+          <th>Nombres y apellidos </th>
+
+        </thead>
+
+      {%for u in listaUsuarios %}
+      <tr>
+        <td>{{u.codigoCliente}}</td>
+        <td>{{u.nombre}} {{u.apellido}}</td>
+
+
+
+      </tr>
+      {% endfor %}
+
+    </table>
+    {% else %}
+    <div class="col-md-5">
+      <p>No hay informacion que mostrar </p>
+
+
+
+    {%endif%}
+
+  </div>
+</div>
+
+
+
+{% endblock %}

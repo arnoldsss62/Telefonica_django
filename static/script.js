@@ -1,7 +1,7 @@
 window.onload = function(){
     var contenedor = document.getElementById('contenedor_carga');
     contenedor.style.display  = 'none';
-    
+
 }
 
 var side_botton = document.getElementById("sidebarCollapse");
@@ -18,9 +18,11 @@ function cerrar(){
     document.getElementById("Calendar").style.display = "none";
     document.getElementById("Form").style.display = "none";
     document.getElementById("home").style.display = "none";
+    document.getElementById("Lista").style.display = "none";
 
 
-    
+
+
 }
 
 
@@ -33,7 +35,9 @@ function abrir(){
    document.getElementById("Calendar").style.display = "block";
    document.getElementById("Form").style.display = "block";
    document.getElementById("home").style.display = "block";
-   
+   document.getElementById("Lista").style.display = "block";
+
+
 
 
 }

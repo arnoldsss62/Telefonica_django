@@ -30,6 +30,11 @@ urlpatterns = [
     path('upload/',vi.upload_file, name='upload'),
     path('calendario_hfc/',vi.calendario_hfc, name='calendario_hfc'),
     re_path(r'^search/trabajo_hfc/$', vi.showTable_hfc,name='search'),
+    path('listar/',vi.listar_usuarios, name='listar_usuarios'),
+    re_path(r'^listar/fecha/$', vi.showUsuarios,name='showUsuarios'),
+
+
+
 
 
 
