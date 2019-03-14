@@ -1,6 +1,6 @@
-window.onload = function(){
+window.onload = function () {
     var contenedor = document.getElementById('contenedor_carga');
-    contenedor.style.display  = 'none';
+    contenedor.style.display = 'none';
 
 }
 
@@ -8,7 +8,7 @@ var side_botton = document.getElementById("sidebarCollapse");
 var sidebar = document.getElementById("sidebar");
 
 
-function cerrar(){
+function cerrar() {
 
 
     sidebar.style.width = "90px";
@@ -26,16 +26,16 @@ function cerrar(){
 }
 
 
-function abrir(){
+function abrir() {
 
     sidebar.style.width = "250px";
-   document.getElementById("TN").style.display = "block";
-   document.getElementById("BC").style.display = "block";
-   document.getElementById("Upload").style.display = "block";
-   document.getElementById("Calendar").style.display = "block";
-   document.getElementById("Form").style.display = "block";
-   document.getElementById("home").style.display = "block";
-   document.getElementById("Lista").style.display = "block";
+    document.getElementById("TN").style.display = "block";
+    document.getElementById("BC").style.display = "block";
+    document.getElementById("Upload").style.display = "block";
+    document.getElementById("Calendar").style.display = "block";
+    document.getElementById("Form").style.display = "block";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("Lista").style.display = "block";
 
 
 
@@ -43,16 +43,28 @@ function abrir(){
 }
 
 
-function abrir_cerrar(){
+function abrir_cerrar() {
 
 
-    if(sidebar.style.width == "250px"){
+    if (sidebar.style.width == "250px") {
 
         cerrar()
-    }
-
-    else{
+    } else {
 
         abrir()
     }
+}
+
+let up = window.pageYOffset;
+window.onscroll = function(){
+
+    let DA = window.pageYOffset;
+    if (up >= 60){
+        document.getElementById("header_s").style.marginTop = "480px";
+    }
+    else {
+        document.getElementById("header_s").style.marginTop = "600px";
+
+    }
+    up = DA;
 }
