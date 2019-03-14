@@ -97,3 +97,13 @@ class TareaNoc(models.Model):
     descripccionNoTecnica=models.CharField(max_length=2000)
     proyecto_beneficio=models.CharField(max_length=100)
     tiempoRollback=models.TimeField(max_length=200, blank=True, null=True)
+
+class Afectados(models.Model):
+    afectadoId=models.AutoField(primary_key=True)
+    nombreCliente=models.CharField(max_length=100)
+    codigoCliente=models.IntegerField()
+    troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
+    fechaTrabajo=models.DateField()
+    hora=models.TimeField(max_length=10)
+    duracion=models.TimeField(max_length=10)
+    telefono=models.CharField(max_length=20)
