@@ -24,6 +24,7 @@ urlpatterns = [
     path('form/',vi.addTarea, name='formulario'),
     path('tareasnoc/',vi.tareasnoc, name='tareasnoc'),
     path('calendario/',vi.calendario, name='calendario'),
+    path('reporte/',vi.report,name="report"),
     re_path(r'^search/trabajo/$', vi.showTable,name='search'),
     path('buscar/',vi.buscarClientes, name='buscaCliente'),
     re_path(r'^buscar/cliente/$', vi.muestraClientes,name='muestra'),
@@ -32,6 +33,7 @@ urlpatterns = [
     re_path(r'^search/trabajo_hfc/$', vi.showTable_hfc,name='search'),
     path('listar/',vi.listar_usuarios, name='listar_usuarios'),
     re_path(r'^listar/fecha/$', vi.showUsuarios,name='showUsuarios'),
+    
 
 
 

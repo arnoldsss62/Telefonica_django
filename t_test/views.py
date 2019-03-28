@@ -238,3 +238,12 @@ def showUsuarios(request):
     form=listarForm
     my_dict={'listaUsuarios':querySet, 'form':form}
     return  render(request,'lista_usuarios.html',context=my_dict)
+
+
+
+
+def report(request):
+    return render(request,'reporte.html')
+
+
+

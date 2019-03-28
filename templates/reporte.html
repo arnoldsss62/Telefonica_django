@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% extends "base2.html" %}
+
+{% load crispy_forms_tags %}
+{% crispy form  form.helper%}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div id="reporte_content">
+
+
+  <h3>Reporteria</h3>
+
+
+  <div id="select_rangos">
+
+
+    <h6>Seleccione el rango:</h6>
+
+    <select name="Rangos" id = "rango" onchange="seleccion_rangos()">
+      <option>-- Escoja el rango --</option>
+      <option value="mes">Por mes</option>
+      <option value="año">Por año</option>
+    </select>
+
+
+  </div>
+
+  <div id="seleccion_años">
+
+    <h6>Seleccione el año</h6>
+    <select name="Rangos_años">
+      <option>2018</option>
+      <option>2019</option>
+
+    </select>
+
+
+  </div>
+
+  <div id="seleccion_mes">
+
+    <h6>Seleccione el mes</h6>
+    <select name="mes_select">
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviemnbre</option>
+      <option value="12">Diciembre</option>
+    </select>
+  </div>
+
+  <form action="" method="GET">
+
+    <div id="boton_reporte">
+
+
+      <button type="submit" class="btn btn-success">
+        <i class="icon-circle-arrow-right icon-large"></i> Reporte
+      </button>
+
+    </div>
+  </form>
+
+
+
+
+  <canvas id="myChart">
+
+  </canvas>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

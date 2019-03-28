@@ -8,16 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>TELEFONICA</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <!-- Include FontAwesome; required for icon display -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"
+        integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
 
 
     <!--  <link rel="stylesheet" href="style2.css"> -->
@@ -26,16 +29,22 @@
 
 
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <!--Chart JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
     {% block extrahead %}
 
@@ -50,19 +59,13 @@
 
 <body>
 
-    <div id="contenedor_carga">
-        <div id="carga">
-        </div>
-    </div>
-
-
-
     <div id="header">
         <div id="header-side">
             <button type="button" id="sidebarCollapse" class="btn btn-info" onclick="abrir_cerrar()">
-                <i class="fas fa-align-left"></i>
+                <i class="fas fa-list-ul"></i>
 
             </button>
+
 
 
         </div>
@@ -73,12 +76,12 @@
 
 
     <div id="header_s">
-            <button type="button" id="sidebarCollapse" class="btn btn-info" onclick="abrir_cerrar()">
-                <i class="fas fa-align-left"></i>
+        <button type="button" id="sidebarCollapse" class="btn btn-info" onclick="abrir_cerrar()">
+            <i class="fas fa-list-ul"></i>
 
-            </button>
+        </button>
 
-        </div>
+    </div>
 
 
 
@@ -90,33 +93,60 @@
         <nav id="sidebar">
 
             <li>
-                <a href="{% url 'index' %}"><i class="fas fa-home"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="home">Home</div></span></a>
+                <a href="{% url 'index' %}">
+                    <div id="img_home"><i class="fas fa-home"></i></div>
+                    <div id="home">Home</div>
+                </a>
 
             </li>
+
+
             <li>
-                <a href="{%url 'buscaCliente' %}"><i class="fas fa-search"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
-                            id="BC">Buscar Cliente</div></span></a>
+                <a href="{% url 'buscaCliente'%}">
+                    <div id="img_buscarcliente"><i class="fas fa-search"></i></div>
+                    <div id="BC">Buscar Cliente</div>
+                </a>
             </li>
 
 
             <li>
-                <a href="{% url 'tareasnoc' %}"><i class="fas fa-tasks"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="TN">Tareas
-                            NOC</div></span></a>
+                <a href="{% url 'tareasnoc' %}">
+                    <div id="img_tareas"><i class="fas fa-tasks"></i></div>
+                    <div id="TN">Tareas NOC</div>
+                </a>
             </li>
             <li>
-                <a href="{% url 'formulario' %}"><i class="fas fa-user-check"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
-                            id="Form">Form</div></span></a>
+                <a href="{% url 'formulario' %}">
+                    <div id="img_formulario"><i class="fas fa-user-check"></i></div>
+                    <div id="Form">Form</div>
+                </a>
             </li>
             <li>
-                <a href="{% url 'calendario' %}"><i class="fas fa-sun"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="Calendar">Calendar</div></span></a>
+                <a href="{% url 'calendario' %}">
+                    <div id="img_calendario"><i class="fas fa-sun"></i></div>
+                    <div id="Calendar">Calendar</div>
+                </a>
             </li>
             <li>
-                <a href="{% url 'upload' %}"><i class="fas fa-cloud-upload-alt"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
-                            id="Upload">Upload</div></span></a>
-            </li>
+                    <a href="{% url 'upload' %}">
+                        <div id = "img_upload"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <div id="Upload">Upload</div>
+                    </a>
+                </li>
             <li>
-                <a href="{% url 'listar_usuarios' %}"><i class="fas fa-user-friends"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
-                            id="Lista">Lista usarios</div></span></a>
+                <a href="{% url 'listar_usuarios' %}">
+                    <div id="img_listar_usuarios"><i class="fas fa-user-friends"></i></div>
+                    <div id="Lista">Lista usarios</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'report' %}">
+                    <div id="img_reporte"><i class="fas fa-chart-bar"></i></div>
+                    <div id="reporte">Reporte
+                    </div>
+                </a>
+
             </li>
             <!--
                 <li>
@@ -167,17 +197,20 @@
         </div>
 
         <!-- jQuery CDN - Slim version (=without AJAX) -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
         <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+        </script>
         <!-- Bootstrap JS -->
         <!-- jQuery Custom Scroller CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js">
+        </script>
 
-        
-               
+
 
 
 

@@ -100,10 +100,10 @@ class TareaNoc(models.Model):
 
 class Afectados(models.Model):
     afectadoId=models.AutoField(primary_key=True)
-    nombreCliente=models.CharField(max_length=100)
-    codigoCliente=models.IntegerField()
+    nombreCliente=models.CharField(max_length=200)
+    codigoCliente=models.CharField(max_length= 200)
     troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
-    fechaTrabajo=models.DateField()
+    fechaTrabajo=models.DateField(max_length = 200 )
     hora=models.TimeField(max_length=10)
-    duracion=models.TimeField(max_length=10)
+    duracion=models.CharField(max_length=100)
     telefono=models.CharField(max_length=20)

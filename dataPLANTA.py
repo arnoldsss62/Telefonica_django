@@ -33,7 +33,7 @@ def Populate(A):
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "telefonica_test.settings")
 
     #indicar que es A
-    for N in range(1,A):
+    for N in range(0,A):
 
          real_cmtsNombre=datos_Jefatura[N]
          real_nodoNombre=datos_NODO[N]
