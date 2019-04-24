@@ -28,7 +28,7 @@ SECRET_KEY = 'ka^)y+&-v&+1-6h9a68geu0hcw7)qt29tksu(t7gn_jt-a&po^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.10.157.244']
 
 
 # Application definition
@@ -88,9 +88,9 @@ DATABASES = {
         'NAME': 'test_2',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
-        'USER': 'arnold',
-        'PASSWORD': 'arnold123',
-        'HOST': 'dbs.cxet9ook2kvx.us-east-2.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
+        'USER': '3ASC',
+        'PASSWORD': 'ArAdAl2019',
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+    }, 
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -126,7 +126,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

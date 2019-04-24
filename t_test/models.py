@@ -1,15 +1,36 @@
 from django.db import models
-#Author: Arnold Velasquez  Ortiz
+#from django.contrib.auth import get_user_model
+#Author: Arnold Velasquez Ortiz
 
 # Create your models here.
 
 class Cmts(models.Model):
     cmtsId=models.AutoField(primary_key=True)
-    cmtsNombre=models.CharField(max_length=20)# No usar jefatura xd, aqui va relacion de jose veliz
+    cmtsNombre=models.CharField(max_length=200)
 
     def __str__(self):
         return self.cmtsNombre
 
+class Cmts2(models.Model):
+    cmts2Id=models.AutoField(primary_key=True)
+    cmtsNombre2=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.cmtsNombre
+
+class Cmts3(models.Model):
+    cmts3Id=models.AutoField(primary_key=True)
+    cmtsNombre3=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.cmtsNombre
+
+class Cmts4(models.Model):
+    cmts4Id=models.AutoField(primary_key=True)
+    cmtsNombre4=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.cmtsNombre
 
 class Nodo(models.Model):
     nodoId=models.AutoField(primary_key=True)
@@ -33,8 +54,9 @@ class Usuario(models.Model):
     usuarioId=models.AutoField(primary_key=True)
     nombre=models.CharField(max_length=40)
     apellido=models.CharField(max_length=80)
-    codigoCliente=models.IntegerField()
+    codigoCliente=models.CharField(max_length=20)
     troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
+    servicio=models.CharField(max_length=30)
     #telefono1=models.CharField(max_length=10)
     #telefono2=models.charfield(max_length=10)
     def __str__(self):
@@ -69,9 +91,9 @@ class InfoCore(models.Model):
 
 class TareaProgramada(models.Model):
     tareaProgramadaId=models.AutoField(primary_key=True)
-    fecha=models.DateField()
-    horaInicio=models.TimeField(max_length=10)
-    horaFin=models.TimeField(max_length=10)
+    fecha=models.CharField(max_length=20)
+    horaInicio=models.TimeField(max_length=20)
+    horaFin=models.TimeField(max_length=20)
     infoCore=models.ForeignKey(InfoCore,on_delete=models.CASCADE,blank=True, null=True)
     infoPlanta=models.ForeignKey(InfoPlanta,on_delete=models.CASCADE,blank=True, null=True)
     area=models.CharField(max_length=10)
@@ -86,7 +108,7 @@ class TareaNoc(models.Model):
     remedy=models.CharField(max_length=60)
     resumen=models.CharField(max_length=100)
     fechaInicio=models.DateField()
-    horaInicio=models.TimeField(max_length=10)
+    horaInicio=models.CharField(max_length=20)
     fechaFin=models.DateField(auto_now_add=True, blank=True)
     horaFin=models.TimeField(max_length=10, blank=True,null=True)
     responsable=models.CharField(max_length=60)
@@ -98,12 +120,12 @@ class TareaNoc(models.Model):
     proyecto_beneficio=models.CharField(max_length=100)
     tiempoRollback=models.TimeField(max_length=200, blank=True, null=True)
 
-class Afectados(models.Model):
-    afectadoId=models.AutoField(primary_key=True)
-    nombreCliente=models.CharField(max_length=200)
-    codigoCliente=models.CharField(max_length= 200)
-    troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
-    fechaTrabajo=models.DateField(max_length = 200 )
-    hora=models.TimeField(max_length=10)
-    duracion=models.CharField(max_length=100)
-    telefono=models.CharField(max_length=20)
+#class Afectados(models.Model):
+    #afectadoId=models.AutoField(primary_key=True)
+    #nombreCliente=models.CharField(max_length=200)
+    #codigoCliente=models.CharField(max_length= 200)
+    #troba=models.ForeignKey(Troba,on_delete=models.CASCADE)
+    #fechaTrabajo=models.DateField(max_length = 200 )
+    #hora=models.TimeField(max_length=10)
+    #duracion=models.CharField(max_length=100)
+    #telefono=models.CharField(max_length=20)
